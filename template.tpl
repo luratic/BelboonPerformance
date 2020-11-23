@@ -134,16 +134,20 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const log = require('logToConsole');
 const sendPixel = require('sendPixel');
 const getTimestamp = require('getTimestamp');
+const encodeUriComponent = require('encodeUriComponent');
+const encodeUri = require('encodeUri');
+
+
 log('data =', data);
 
-const advertiserId = data.advertiserId;
-const advertiserDomain = data.advertiserDomain;
-const productCategory = data.productCategory;
-const shortDesc = data.shortDesc;
+const advertiserId = encodeUri(data.advertiserId);
+const advertiserDomain = encodeUri(data.advertiserDomain);
+const productCategory = encodeUriComponent(data.productCategory);
+const shortDesc = encodeUriComponent(data.shortDesc);
 const conversionTarget = data.conversionTarget === 'new' ? 'new' : 'sale';
-const conversionId = data.conversionId;
-const conversionValue = data.conversionValue;
-const currencyCode = data.currencyCode;
+const conversionId = encodeUriComponent(data.conversionId);
+const conversionValue = encodeUriComponent(data.conversionValue);
+const currencyCode = encodeUriComponent(data.currencyCode);
 const timestamp = getTimestamp();
 
 const trackingUrl = 'https://' + advertiserDomain + '/ts/' + advertiserId + '/tsa?typ=i&tst=' + getTimestamp() + '&trc=' + productCategory + '&ctg=' + conversionTarget + '&sid=' + shortDesc + '&cid=' + conversionId + '&orv=' + conversionValue + '&orc=' + currencyCode;
