@@ -1,5 +1,7 @@
 homepage: "https://www.luratic.com"
 documentation: "https://www.luratic.com/posts/templates/tags/belboon-performance/"
 versions:
+  - sha: 991dea50f9e6e5411378cf8a7e2c676884e87477
+    changeNotes: Fix encode uri parameters
   - sha: 1388dc181d512903105a3ddc78d6ea2a0d15ff37
     changeNotes: Initial release
